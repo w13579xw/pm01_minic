@@ -1,0 +1,39 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find /c/Users/ez -type f -size +500M 2>/dev/null | head -20)",
+      "Read(//c/Users/ez/**)",
+      "Bash(ls -lh /c/hiberfil.sys /c/pagefile.sys /c/swapfile.sys 2>/dev/null)",
+      "Read(//c//**)",
+      "Bash(powershell.exe -Command 'Get-ChildItem C:\\\\Users\\\\ez -Directory -Force -ErrorAction SilentlyContinue | ForEach-Object { try { $size = \\(Get-ChildItem $_.FullName -Recurse -Force -File -ErrorAction SilentlyContinue | Measure-Object -Property Length -Sum\\).Sum; [PSCustomObject]@{Name=$_.Name; SizeGB=[math]::Round\\($size/1GB,2\\)} } catch {} } | Sort-Object SizeGB -Descending | Format-Table -AutoSize')",
+      "Bash(powershell.exe -Command 'Get-ChildItem C:\\\\Users\\\\ez\\\\AppData\\\\Local -Directory -Force -ErrorAction SilentlyContinue | ForEach-Object { try { $size = \\(Get-ChildItem $_.FullName -Recurse -Force -File -ErrorAction SilentlyContinue | Measure-Object -Property Length -Sum\\).Sum; [PSCustomObject]@{Name=$_.Name; SizeGB=[math]::Round\\($size/1GB,2\\)} } catch {} } | Sort-Object SizeGB -Descending | Select-Object -First 20 | Format-Table -AutoSize')",
+      "Bash(powershell.exe -Command 'Get-ChildItem C:\\\\Users\\\\ez\\\\AppData\\\\Roaming -Directory -Force -ErrorAction SilentlyContinue | ForEach-Object { try { $size = \\(Get-ChildItem $_.FullName -Recurse -Force -File -ErrorAction SilentlyContinue | Measure-Object -Property Length -Sum\\).Sum; [PSCustomObject]@{Name=$_.Name; SizeGB=[math]::Round\\($size/1GB,2\\)} } catch {} } | Sort-Object SizeGB -Descending | Select-Object -First 20 | Format-Table -AutoSize')",
+      "Bash(powershell.exe -Command 'Get-ChildItem '\\\\''C:\\\\ProgramData'\\\\'' -Directory -Force -ErrorAction SilentlyContinue | ForEach-Object { try { $size = \\(Get-ChildItem $_.FullName -Recurse -Force -File -ErrorAction SilentlyContinue | Measure-Object -Property Length -Sum\\).Sum; [PSCustomObject]@{Name=$_.Name; SizeGB=[math]::Round\\($size/1GB,2\\)} } catch {} } | Sort-Object SizeGB -Descending | Select-Object -First 15 | Format-Table -AutoSize')",
+      "Bash(powershell.exe -Command 'Get-ChildItem C:\\\\Users\\\\ez\\\\AppData\\\\Local\\\\Packages -Directory -Force -ErrorAction SilentlyContinue | ForEach-Object { try { $size = \\(Get-ChildItem $_.FullName -Recurse -Force -File -ErrorAction SilentlyContinue | Measure-Object -Property Length -Sum\\).Sum; [PSCustomObject]@{Name=$_.Name; SizeGB=[math]::Round\\($size/1GB,2\\)} } catch {} } | Sort-Object SizeGB -Descending | Select-Object -First 10 | Format-Table -AutoSize')",
+      "Bash(powershell.exe -Command 'Get-ChildItem C:\\\\Windows -Directory -Force -ErrorAction SilentlyContinue | ForEach-Object { try { $size = \\(Get-ChildItem $_.FullName -Recurse -Force -File -ErrorAction SilentlyContinue | Measure-Object -Property Length -Sum\\).Sum; [PSCustomObject]@{Name=$_.Name; SizeGB=[math]::Round\\($size/1GB,2\\)} } catch {} } | Sort-Object SizeGB -Descending | Select-Object -First 15 | Format-Table -AutoSize')",
+      "Bash(powershell.exe -Command 'Get-ChildItem C:\\\\Users\\\\ez -Recurse -File -Force -ErrorAction SilentlyContinue | Where-Object { $_.Length -gt 500MB } | Sort-Object Length -Descending | Select-Object @{N='\\\\''SizeMB'\\\\'';E={[math]::Round\\($_.Length/1MB,0\\)}}, FullName | Format-Table -AutoSize')",
+      "Bash(powershell.exe -Command 'Get-ChildItem '\\\\''C:\\\\Program Files'\\\\'' -Directory -Force -ErrorAction SilentlyContinue | ForEach-Object { try { $size = \\(Get-ChildItem $_.FullName -Recurse -Force -File -ErrorAction SilentlyContinue | Measure-Object -Property Length -Sum\\).Sum; [PSCustomObject]@{Name=$_.Name; SizeGB=[math]::Round\\($size/1GB,2\\)} } catch {} } | Sort-Object SizeGB -Descending | Select-Object -First 15 | Format-Table -AutoSize')",
+      "Bash(pip cache *)",
+      "Bash(rm -rf /c/Users/ez/AppData/Local/JetBrains/PyCharm2022.1/ && echo \"PyCharm 2022.1 cache deleted\")",
+      "Bash(rm -rf \"/c/Users/ez/AppData/Local/Microsoft/Edge/User Data/Default/Cache/\"*)",
+      "Bash(rm -rf \"/c/Users/ez/AppData/Local/Microsoft/Edge/User Data/Default/Code Cache/\"*)",
+      "Bash(rm -rf \"/c/Users/ez/AppData/Local/Microsoft/Edge/User Data/Default/Service Worker/\"*)",
+      "Bash(rm -rf \"/c/Users/ez/AppData/Local/Microsoft/Edge/User Data/GrShaderCache/\"*)",
+      "Bash(rm -rf \"/c/Users/ez/AppData/Local/Microsoft/Edge/User Data/ShaderCache/\"*)",
+      "Bash(rm -rf \"/c/Users/ez/AppData/Roaming/kingsoft/personalofflinecache/\"*)",
+      "Bash(rm -rf \"/c/Users/ez/AppData/Roaming/kingsoft/wps/wpscloud/\"*)",
+      "Bash(rm -rf \"/c/Users/ez/AppData/Local/NetEase/\"*cache* \"/c/Users/ez/AppData/Local/NetEase/\"*Cache*)",
+      "Bash(rm -rf \"/c/Users/ez/AppData/Roaming/LarkShell/\"*cache* \"/c/Users/ez/AppData/Roaming/LarkShell/\"*Cache*)",
+      "Bash(rm -rf /c/Users/ez/AppData/Local/NetEase/CloudMusic/Cache/*)",
+      "Bash(rm -rf /c/Users/ez/AppData/Local/NetEase/CloudMusic/update/*)",
+      "Bash(wsl --list --verbose)",
+      "Bash(tasklist)",
+      "Bash(mkdir -p /e/wsl)",
+      "Bash(mkdir -p /e/docker)",
+      "Bash(wsl --export Ubuntu-22.04 E:/wsl/ubuntu-22.04-backup.tar)"
+    ],
+    "additionalDirectories": [
+      "C:\\Users\\ez\\AppData\\Local\\JetBrains\\PyCharm2022.1\\"
+    ]
+  }
+}

@@ -1,0 +1,58 @@
+body_names: [LINK_BASE, LINK_HIP_PITCH_L, LINK_HIP_PITCH_R, LINK_TORSO_YAW, LINK_HIP_ROLL_L,
+  LINK_HIP_ROLL_R, LINK_SHOULDER_PITCH_L, LINK_SHOULDER_PITCH_R, LINK_HEAD_YAW, LINK_HIP_YAW_L,
+  LINK_HIP_YAW_R, LINK_SHOULDER_ROLL_L, LINK_SHOULDER_ROLL_R, LINK_KNEE_PITCH_L, LINK_KNEE_PITCH_R,
+  LINK_SHOULDER_YAW_L, LINK_SHOULDER_YAW_R, LINK_ANKLE_PITCH_L, LINK_ANKLE_PITCH_R,
+  LINK_ELBOW_PITCH_L, LINK_ELBOW_PITCH_R, LINK_ANKLE_ROLL_L, LINK_ANKLE_ROLL_R, LINK_ELBOW_YAW_L,
+  LINK_ELBOW_YAW_R, LINK_FOOT_L, LINK_FOOT_R, LINK_ELBOW_END_L, LINK_ELBOW_END_R]
+step_dt: 0.02
+default_joint_pos: [-0.0502, -0.0674, 0.00124, 0.000442, 0.00489, 0.00191, 0.00929,
+  0.00796, 0.00546, 0.00336, 0.151, -0.15, 0.122, 0.115, 0.00793, -0.00627, -0.0555,
+  -0.0664, -0.24, -0.247, -0.00029, 0.00475, -0.00448, 0.00818]
+commands: {}
+actions:
+  JointPositionAction:
+    clip: null
+    joint_names: [.*]
+    scale: [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0,
+      1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
+    offset: [-0.0502, -0.0674, 0.00124, 0.000442, 0.00489, 0.00191, 0.00929, 0.00796,
+      0.00546, 0.00336, 0.151, -0.15, 0.122, 0.115, 0.00793, -0.00627, -0.0555, -0.0664,
+      -0.24, -0.247, -0.00029, 0.00475, -0.00448, 0.00818]
+    joint_ids: null
+observations:
+  motion_command:
+    params: {command_name: motion}
+    clip: null
+    scale: [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0,
+      1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0,
+      1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0,
+      1.0, 1.0]
+    history_length: 1
+  motion_anchor_ori_b:
+    params: {command_name: motion}
+    clip: null
+    scale: [1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
+    history_length: 1
+  base_ang_vel:
+    params: {}
+    clip: null
+    scale: [1.0, 1.0, 1.0]
+    history_length: 1
+  joint_pos_rel:
+    params: {}
+    clip: null
+    scale: [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0,
+      1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
+    history_length: 1
+  joint_vel_rel:
+    params: {}
+    clip: null
+    scale: [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0,
+      1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
+    history_length: 1
+  last_action:
+    params: {}
+    clip: null
+    scale: [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0,
+      1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
+    history_length: 1
